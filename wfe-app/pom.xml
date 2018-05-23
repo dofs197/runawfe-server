@@ -16,6 +16,10 @@
 		<module>../wfe-ear</module>
 	</modules>
 
+  <scm>
+    <developerConnection>scm:git:git@github.com:dofs197/runawfe-server.git</developerConnection>
+  </scm>
+
 	<properties>
 		<downloadSources>true</downloadSources>
 		<downloadJavadocs>true</downloadJavadocs>
@@ -415,6 +419,11 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-ear-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
 			</plugin>
 		</plugins>
 	</build>
