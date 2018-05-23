@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>ru.runa.wfe</groupId>
 		<artifactId>wfe-app</artifactId>
-		<version>4.3.0-SNAPSHOT</version>
+		<version>4.3.0</version>
 		<relativePath>../wfe-app/pom.xml</relativePath>
 	</parent>
 
@@ -264,7 +264,7 @@
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-										<ignore></ignore>
+										<ignore />
 									</action>
 								</pluginExecution>
 								<pluginExecution>
@@ -277,7 +277,7 @@
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-										<ignore></ignore>
+										<ignore />
 									</action>
 								</pluginExecution>
 							</pluginExecutions>
@@ -309,15 +309,12 @@
 								<phase>prepare-package</phase>
 								<configuration>
 									<tasks>
-										<copy file="src/main/webapp/images/big_logo.gif" tofile="${project.build.directory}/wfe-web-${project.version}/images/big_logo.gif"
-											overwrite="true" />
-										<copy file="src/main/webapp/WEB-INF/af/login.jsp" tofile="${project.build.directory}/wfe-web-${project.version}/WEB-INF/af/login.jsp"
-											overwrite="true" />
+										<copy file="src/main/webapp/images/big_logo.gif" tofile="${project.build.directory}/wfe-web-${project.version}/images/big_logo.gif" overwrite="true" />
+										<copy file="src/main/webapp/WEB-INF/af/login.jsp" tofile="${project.build.directory}/wfe-web-${project.version}/WEB-INF/af/login.jsp" overwrite="true" />
 										<replace file="${project.build.directory}/wfe-web-${project.version}/WEB-INF/af/login.jsp" token="&lt;/html:form&gt;">
 											<replacevalue><![CDATA[
 </html:form>
-<% 
-String pr = null;
+<% String pr = null;
 try {
 	ru.runa.wfe.commons.PropertyResources resources = new ru.runa.wfe.commons.PropertyResources("simulation.properties");
 	pr = resources.getStringProperty("skipLoginLinks", null);
@@ -326,7 +323,7 @@ try {
 if ( pr == null || !pr.trim().toLowerCase().equals("true") ){ 
 %>
 <table>
-	<tr><td><bean:message key="login.page.login.as"/></td></tr>
+	<tr><td><bean:message key="login.page.login.as" /></td></tr>
 	<tr><td><html:link action="/login.do?login=julius&amp;password=123">julius (manager)</html:link></td></tr>
 	<tr><td><html:link action="/login.do?login=nero&amp;password=123">nero (manager)</html:link></td></tr>
 	<tr><td><html:link action="/login.do?login=tiberius&amp;password=123">tiberius (bookkeeper)</html:link></td></tr>
